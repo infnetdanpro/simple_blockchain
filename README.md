@@ -11,11 +11,8 @@ curl -X POST \
 }'
 ```
 ```bash
-curl -X POST \
-  http://127.0.0.1:5001/nodes/register -H 'content-type: application/json' \
-  -d '{
-	"nodes": ["http://127.0.0.1:5000"]
-}'
+curl -X POST http://127.0.0.1:5001/nodes/register -H 'content-type: application/json' \
+  -d '{"nodes": ["http://127.0.0.1:5000"]}'
 ```
 4. Mine on first node:
 ```bash
@@ -28,6 +25,12 @@ curl -X GET http://127.0.0.1:5000/nodes/resolve
 curl -X GET http://127.0.0.1:5001/nodes/resolve
 ```
 
+
+6. Request chain, they are should be the same:
+```bash
+curl -X POST http://127.0.0.1:5000/chain -H 'content-type: application/json'
+curl -X POST http://127.0.0.1:5000/chain -H 'content-type: application/json'
+```
 
 Example of response:
 ```json
